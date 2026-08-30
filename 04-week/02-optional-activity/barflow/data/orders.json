@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "table": 3,
+    "zone": "Interior",
+    "items": ["2x Cerveza Club Colombia", "1x Papas a la francesa"],
+    "total": 38000,
+    "status": "en preparación"
+  },
+  {
+    "id": 2,
+    "table": 7,
+    "zone": "Exterior",
+    "items": ["3x Aguardiente Néctar", "1x Picada mixta"],
+    "total": 96000,
+    "status": "servido"
+  },
+  {
+    "id": 3,
+    "table": 1,
+    "zone": "Interior",
+    "items": ["1x Limonada natural", "1x Alitas BBQ"],
+    "total": 32000,
+    "status": "pendiente"
+  },
+  {
+    "id": 4,
+    "table": 10,
+    "zone": "Exterior",
+    "items": ["4x Cerveza Poker", "2x Hamburguesa clásica"],
+    "total": 84000,
+    "status": "en preparación"
+  },
+  {
+    "id": 5,
+    "table": 5,
+    "zone": "Interior",
+    "items": ["1x Ron Viejo de Caldas", "1x Nachos"],
+    "total": 45000,
+    "status": "pagado"
+  },
+  {
+    "id": 6,
+    "table": 12,
+    "zone": "Exterior",
+    "items": ["2x Gaseosa", "1x Costillas BBQ"],
+    "total": 52000,
+    "status": "servido"
+  }
+]

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>barflow | Pedidos activos</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="header-inner">
+      <h1>🍹 barflow</h1>
+      <p class="subtitle">Gestión de pedidos, mesas e inventario para bares — Actividad Corte 1</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Barra de controles: filtro por estado + recargar + simular fallo -->
+    <section class="controls" aria-label="Controles de filtrado">
+      <label for="status-filter" class="visually-hidden">Filtrar por estado</label>
+      <select id="status-filter">
+        <option value="all">Todos los estados</option>
+      </select>
+
+      <button id="reload-btn" class="btn-secondary" type="button">↻ Recargar</button>
+      <button id="simulate-error-btn" class="btn-danger" type="button">⚠️ Simular fallo de red</button>
+    </section>
+
+    <!-- ESTADO: CARGANDO -->
+    <section id="state-loading" class="state-panel" hidden>
+      <div class="spinner" aria-hidden="true"></div>
+      <p>Cargando pedidos…</p>
+    </section>
+
+    <!-- ESTADO: ERROR -->
+    <section id="state-error" class="state-panel" hidden>
+      <p class="error-icon" aria-hidden="true">⚠️</p>
+      <p class="error-message">No se pudieron cargar los pedidos.</p>
+      <p id="error-detail" class="error-detail"></p>
+      <button id="retry-btn" class="btn-primary" type="button">Reintentar</button>
+    </section>
+
+    <!-- ESTADO: SIN RESULTADOS -->
+    <section id="state-empty" class="state-panel" hidden>
+      <p>😕 No hay pedidos con ese estado.</p>
+    </section>
+
+    <!-- ESTADO: DATOS -->
+    <section id="state-data" class="orders-grid" hidden aria-live="polite">
+      <!-- Las tarjetas de pedido (componentes) se insertan aquí por JS -->
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <p>Fuente de datos: API de ejemplo local (<code>data/orders.json</code>) consumida con <code>fetch</code></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

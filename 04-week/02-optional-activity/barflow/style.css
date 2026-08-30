@@ -1,0 +1,252 @@
+:root {
+  --color-bg: #f5f6fa;
+  --color-surface: #ffffff;
+  --color-primary: #b8792f;
+  --color-primary-dark: #8f5b1f;
+  --color-danger: #d93025;
+  --color-danger-bg: #fdecea;
+  --color-text: #1e2530;
+  --color-muted: #6b7280;
+  --radius: 12px;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+/* ---------- Header ---------- */
+.app-header {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: #fff;
+  padding: 28px 16px;
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.app-header h1 {
+  margin: 0 0 4px;
+  font-size: 1.6rem;
+}
+
+.subtitle {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 0.9rem;
+}
+
+/* ---------- Layout ---------- */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px 60px;
+}
+
+/* ---------- Controls ---------- */
+.controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+#status-filter {
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  border: 1px solid #d5d9e0;
+  background: var(--color-surface);
+  font-size: 0.95rem;
+  min-width: 200px;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-danger {
+  border: none;
+  border-radius: var(--radius);
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.05s ease;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+}
+
+.btn-secondary {
+  background: #e9ecf3;
+  color: var(--color-text);
+}
+.btn-secondary:hover {
+  background: #dde1ea;
+}
+
+.btn-danger {
+  background: #fff;
+  color: var(--color-danger);
+  border: 1px solid var(--color-danger);
+}
+.btn-danger:hover {
+  background: var(--color-danger-bg);
+}
+
+.btn-primary:active,
+.btn-secondary:active,
+.btn-danger:active {
+  transform: scale(0.97);
+}
+
+/* ---------- Estado panels ---------- */
+.state-panel {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--color-muted);
+}
+
+.spinner {
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 16px;
+  border: 4px solid #dfe3ea;
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#state-error {
+  background: var(--color-danger-bg);
+  color: var(--color-danger);
+}
+
+.error-icon {
+  font-size: 2rem;
+  margin: 0 0 8px;
+}
+
+.error-message {
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.error-detail {
+  font-size: 0.85rem;
+  opacity: 0.85;
+  margin: 0 0 18px;
+}
+
+/* ---------- Orders grid (componente: tarjeta de pedido) ---------- */
+.orders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.order-card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.order-card .order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-card .table-label {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.order-card .zone-tag {
+  font-size: 0.72rem;
+  color: var(--color-muted);
+}
+
+.order-card ul.items {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.88rem;
+  color: var(--color-text);
+}
+
+.order-card .order-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-card .total {
+  font-weight: 700;
+}
+
+.status-badge {
+  font-size: 0.72rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.status-pendiente {
+  background: #fff4e5;
+  color: #b8792f;
+}
+.status-preparacion {
+  background: #e8f0fe;
+  color: #2f6fed;
+}
+.status-servido {
+  background: #e6f7ee;
+  color: #1e9e5c;
+}
+.status-pagado {
+  background: #eee;
+  color: #555;
+}
+
+/* ---------- Footer ---------- */
+.app-footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
