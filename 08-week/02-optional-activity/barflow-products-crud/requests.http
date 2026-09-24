@@ -1,0 +1,41 @@
+### Pruebas manuales para REST Client (VS Code) o el cliente HTTP de IntelliJ.
+### Arranca la API con: mvn spring-boot:run
+
+@base = http://localhost:8080/api/v1/products
+
+### Listar productos
+GET {{base}}
+
+### Filtrar por categoría
+GET {{base}}?category=cervezas
+
+### Crear un producto
+# @name crear
+POST {{base}}
+Content-Type: application/json
+
+{ "name": "Cerveza Poker", "category": "Cervezas", "price": 4500, "stockQuantity": 60 }
+
+### Obtener el producto creado
+GET {{base}}/{{crear.response.body.id}}
+
+### Actualizar precio y stock
+PUT {{base}}/{{crear.response.body.id}}
+Content-Type: application/json
+
+{ "name": "Cerveza Poker", "category": "Cervezas", "price": 4800, "stockQuantity": 55 }
+
+### Borrar
+DELETE {{base}}/{{crear.response.body.id}}
+
+### Cuerpo inválido → 400
+POST {{base}}
+Content-Type: application/json
+
+{ "name": "", "category": "Cervezas", "price": -100, "stockQuantity": 10 }
+
+### Nombre repetido → 409
+POST {{base}}
+Content-Type: application/json
+
+{ "name": "cerveza aguila", "category": "Cervezas", "price": 5000, "stockQuantity": 10 }
