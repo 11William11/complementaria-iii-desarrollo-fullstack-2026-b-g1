@@ -1,6 +1,6 @@
 # BarFlow — API de productos con Swagger y Postman (Semana 9)
 
-Actividad opcional de refuerzo y actividad calificable c2 · Complementaria III — Desarrollo Fullstack · 2026-B
+Actividad calificable c2 (Corte 2) · Complementaria III — Desarrollo Fullstack · 2026-B
 **Autor:** William Erney Collo Narvaez (`11William11`)
 
 API REST de BarFlow en Spring Boot con arquitectura en capas
