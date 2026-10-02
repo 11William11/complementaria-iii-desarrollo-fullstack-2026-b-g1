@@ -1,0 +1,73 @@
+{
+  "info": {
+    "name": "BarFlow · Products API (semana 9)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080" }
+  ],
+  "item": [
+    {
+      "name": "1. Listar productos (200)",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/v1/products"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200', () => pm.response.to.have.status(200));",
+              "pm.test('Body is an array', () => pm.expect(pm.response.json()).to.be.an('array'));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Crear producto (201)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/api/v1/products",
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"name\": \"Cerveza Postman {{$timestamp}}\", \"category\": \"Cervezas\", \"price\": 4500, \"stockQuantity\": 60 }"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 201', () => pm.response.to.have.status(201));",
+              "pm.test('Location header is present', () => pm.response.to.have.header('Location'));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Obtener producto que no existe (404)",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/v1/products/00000000-0000-0000-0000-000000000000"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 404', () => pm.response.to.have.status(404));",
+              "pm.test('Error body says NOT_FOUND', () => pm.expect(pm.response.json().error).to.eql('NOT_FOUND'));"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
