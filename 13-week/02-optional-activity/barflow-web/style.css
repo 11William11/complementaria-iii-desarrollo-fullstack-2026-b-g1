@@ -1,0 +1,260 @@
+/* Misma paleta y componentes que el frontend de BarFlow de la semana 4 */
+:root {
+  --color-bg: #f5f6fa;
+  --color-surface: #ffffff;
+  --color-primary: #b8792f;
+  --color-primary-dark: #8f5b1f;
+  --color-danger: #d93025;
+  --color-danger-bg: #fdecea;
+  --color-text: #1e2530;
+  --color-muted: #6b7280;
+  --color-border: #d5d9e0;
+  --radius: 12px;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* ---------- Header ---------- */
+.app-header {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: #fff;
+  padding: 28px 16px;
+}
+
+.header-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.app-header h1 {
+  margin: 0 0 4px;
+  font-size: 1.6rem;
+}
+
+.subtitle {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 0.9rem;
+}
+
+/* ---------- Layout ---------- */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px 60px;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.controls h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+/* ---------- Buttons ---------- */
+.btn-primary,
+.btn-secondary,
+.btn-light {
+  border: none;
+  border-radius: var(--radius);
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.05s ease;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+}
+
+.btn-primary:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.btn-secondary {
+  background: #e9ecf3;
+  color: var(--color-text);
+}
+
+.btn-secondary:hover {
+  background: #dde1ea;
+}
+
+.btn-light {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.btn-light:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary:active,
+.btn-secondary:active,
+.btn-light:active {
+  transform: scale(0.97);
+}
+
+/* ---------- Login ---------- */
+.login-card {
+  max-width: 380px;
+  margin: 24px auto;
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px 24px;
+}
+
+.login-card h2 {
+  margin: 0 0 18px;
+  font-size: 1.2rem;
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.login-card label {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.login-card input {
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.login-card button {
+  margin-top: 8px;
+}
+
+.login-error {
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  background: var(--color-danger-bg);
+  color: var(--color-danger);
+  font-size: 0.88rem;
+}
+
+/* ---------- Estado panels ---------- */
+.state-panel {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--color-muted);
+}
+
+.spinner {
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 16px;
+  border: 4px solid #dfe3ea;
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#state-error {
+  background: var(--color-danger-bg);
+  color: var(--color-danger);
+}
+
+.error-icon {
+  font-size: 2rem;
+  margin: 0 0 8px;
+}
+
+.error-message {
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.error-detail {
+  font-size: 0.85rem;
+  opacity: 0.85;
+  margin: 0 0 18px;
+}
+
+/* ---------- Tabla de productos ---------- */
+.table-wrapper {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+th,
+td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #eef0f4;
+}
+
+th {
+  color: var(--color-muted);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.num {
+  text-align: right;
+}
+
+/* ---------- Footer ---------- */
+.app-footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}

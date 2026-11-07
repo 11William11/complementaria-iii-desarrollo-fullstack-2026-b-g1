@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>barflow | Inventario</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="header-inner">
+      <div>
+        <h1>🍹 barflow</h1>
+        <p class="subtitle">Inventario de productos — frontend conectado a la API (Semana 13)</p>
+      </div>
+      <button id="logout-btn" class="btn-light" type="button" hidden>Cerrar sesión</button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- VISTA: LOGIN -->
+    <section id="login-view" class="login-card" hidden>
+      <h2>Iniciar sesión</h2>
+      <form id="login-form" novalidate>
+        <label for="username">Usuario</label>
+        <input id="username" name="username" type="text" autocomplete="username" required />
+
+        <label for="password">Contraseña</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required />
+
+        <p id="login-error" class="login-error" role="alert" hidden></p>
+
+        <button id="login-btn" class="btn-primary" type="submit">Ingresar</button>
+      </form>
+    </section>
+
+    <!-- VISTA: PRODUCTOS (endpoint protegido) -->
+    <section id="products-view" hidden>
+      <div class="controls">
+        <h2>Productos</h2>
+        <button id="reload-btn" class="btn-secondary" type="button">↻ Recargar</button>
+      </div>
+
+      <!-- ESTADO: CARGANDO -->
+      <div id="state-loading" class="state-panel" hidden>
+        <div class="spinner" aria-hidden="true"></div>
+        <p>Cargando productos…</p>
+      </div>
+
+      <!-- ESTADO: ERROR -->
+      <div id="state-error" class="state-panel" role="alert" hidden>
+        <p class="error-icon" aria-hidden="true">⚠️</p>
+        <p class="error-message">No se pudieron cargar los productos.</p>
+        <p id="error-detail" class="error-detail"></p>
+        <button id="retry-btn" class="btn-primary" type="button">Reintentar</button>
+      </div>
+
+      <!-- ESTADO: SIN RESULTADOS -->
+      <div id="state-empty" class="state-panel" hidden>
+        <p>No hay productos registrados.</p>
+      </div>
+
+      <!-- ESTADO: DATOS -->
+      <div id="state-data" class="table-wrapper" hidden>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Producto</th>
+              <th scope="col">Categoría</th>
+              <th scope="col" class="num">Precio</th>
+              <th scope="col" class="num">Stock</th>
+            </tr>
+          </thead>
+          <tbody id="products-body">
+            <!-- Las filas se insertan desde app.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <p>Datos: API de BarFlow (Spring Boot) en <code>http://localhost:8080</code>, protegida con JWT</p>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
