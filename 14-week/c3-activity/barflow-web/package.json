@@ -1,0 +1,14 @@
+{
+  "name": "barflow-web",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "description": "C3 · Frontend de BarFlow (HTML + JS) con pruebas de Vitest y jsdom",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "jsdom": "^29.1.1",
+    "vitest": "^5.1.0"
+  }
+}
